@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         :root {
+            --font-primary: 'Roboto', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+            --font-alternate: 'Courier New', monospace;
+            --font-fun: 'Comic Sans MS', Courier;
+            --font-nature: 'Fira Code', monospace;
+            --transition-speed: 0.5s;
+        }
+        body {
+            font-family: var(--font-primary);
+            transition: background var(--transition-speed), color var(--transition-speed), font-family var(--transition-speed);
+            text-align: center;
+            padding: 5vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+        .theme-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .theme-card {
+            width: 200px;
+            height: 250px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    
+        }
+        .theme-card:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        .theme-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .theme-description {
+            margin-top: 30px;
+            font-size: 1.32rem;
+            max-width: 700px;
+        }
+        .no-theme { background: linear-gradient(135deg, #ECECEC, #D6D6D6); color: #333; font-family: var(--font-primary); }
+        .sunny-vibes { background: linear-gradient(135deg, #f7e26b, #ff6913); color: #333; font-family: var(--font-fun); }
+        .midnight-mystery { background: linear-gradient(135deg, #1F1B24, #3D2C8D); color: #fff; font-family: var(--font-secondary); }
+        .blush-bliss { background: linear-gradient(135deg, #df6c92, #a9c4c3); color: #333; font-family: var(--font-alternate); }
+        .ocean-breeze { background: linear-gradient(135deg, #bdedf7, #0056b3); color: #fff; font-family: var(--font-secondary); }
+        .forest-haven { background: linear-gradient(125deg, #700759, #2d5317); color: #fff; font-family: var(--font-nature); }
+    
+    </style>
+</head>
+<body>
+    <h1>Choose Your Theme</h1>
+    <p>Each theme provides a unique visual and emotional experience. Click to switch!</p>
+    
+    <div class="theme-container">
+        <div class="theme-card no-theme" onclick="setTheme('', 'The default theme embraces simplicity, offering a clean and professional appearance. The neutral tones and minimal styling make it ideal for those who prefer clarity and structure.')">
+            <div class="theme-title">No Theme</div>
+        </div>
+        <div class="theme-card sunny-vibes" onclick="setTheme('sunny-vibes', 'A cheerful, energetic theme with soft golden and pink tones, like a sunlit morning full of promise and warmth.')">
+            <div class="theme-title">Sunny Vibes</div>
+        </div>
+        <div class="theme-card midnight-mystery" onclick="setTheme('midnight-mystery', 'Dark and mysterious, this theme embodies the intrigue of a quiet midnight, with deep tones that inspire contemplation and creativity.')">
+            <div class="theme-title">Midnight Mystery</div>
+        </div>
+        <div class="theme-card blush-bliss" onclick="setTheme('blush-bliss', 'Soft, dreamy, and romantic, this pastel theme wraps you in a gentle, charming aesthetic perfect for a cozy atmosphere.')">
+            <div class="theme-title">Blush Bliss</div>
+        </div>
+        <div class="theme-card ocean-breeze" onclick="setTheme('ocean-breeze', 'A refreshing escape inspired by the sea, bringing in cool blues and soothing tones for a relaxed, airy feel.')">
+            <div class="theme-title">Ocean Breeze</div>
+        </div>
+        <div class="theme-card forest-haven" onclick="setTheme('forest-haven', 'A lush, green retreat into nature, evoking a peaceful woodland walk surrounded by fresh air and serenity.')">
+            <div class="theme-title">Forest Haven</div>
+        </div>
+    </div>
+    
+    <p id="theme-description" class="theme-description">Click a theme to see its description.</p>
+    
+    <script>
+        function setTheme(theme, description) {
+            document.body.className = theme;
+            document.getElementById('theme-description').innerText = description;
+        }
+    </script>
+
+</body>
+</html>
